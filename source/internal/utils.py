@@ -19,9 +19,8 @@ header = """[bold white]
 ╚═════╝ ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝
 [/]"""
 info = """[bold black]
-🏴 Made by Sxvxge.
-[bold yellow]🚀 Star the repo: https://github.com/Sxvxgee/Discord-Scraper
-[bold green]✅ Follow me: https://github.com/Sxvxgee/
+[bold yellow]🚀 Star the repo: Loading...
+[bold green]✅ Follow me: Still Loading...
 [/]"""
 
 default_data = {
@@ -29,7 +28,7 @@ default_data = {
   "guild_id": 0,
   "pfp_format": "png",
   "purge_old_data": True,
-  "download_pfp": True,
+  "download_pfp": False,
   "channel_id": 0
 }
 
@@ -104,10 +103,10 @@ async def create_member_file(member: Member):
 
   try:
     username = clean_string(member.display_name)
-    profile = await member.guild.fetch_member_profile(member.id)
-    bio = clean_string(profile.bio) if profile.bio else "User doesn't have a bio."
+    # profile = await member.guild.fetch_member_profile(member.id)
+    # bio = clean_string(profile.bio) if profile.bio else "User doesn't have a bio."
     with open(f"DataScraped/{member.guild.name}/{member.id}.txt", "w+") as file:
-      file.write(f"Username: {username}\nAccount ID: {member.id}\nBio: {bio}\nDiscriminator: #{member.discriminator}\n\n\nScraped by Discord-Scraper: https://github.com/Sxvxgee/Discord-Scraper/ \nFollow Sxvxge: https://github.com/Sxvxgee/")
+      file.write(f"Username: {username}\nAccount ID: {member.id}")
   except Exception as e:
     print(f"[bold red][Error] Failed to write the data of the account \"{member}\": {e} [/]")
 

@@ -30,8 +30,7 @@ async def on_ready():
 
   for member in track(members, description="[bold white][Scraper] Scraping profiles...[/]", refresh_per_second=100000):
     await create_member_file(member)
-    if config["download_pfp"]:
-      await download_pfp(member)
+    # if config["download_pfp"]:
+    #   await download_pfp(member)
 
   logger.success("Finished scraping members profiles and data.\n")
-  logger.scraper("Don\"t forget to star the repo and follow Sxvxgee on github!")
